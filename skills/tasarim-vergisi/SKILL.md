@@ -1,6 +1,6 @@
 ---
 name: tasarim-vergisi
-description: "Tasarım Vergisi" — küratörlü bir referans kataloğunu (UI galerileri, motion, tasarım sistemleri, pixel-art/oyun, 3D, video, AI ses/medya, kalite kapıları) kullanarak istenen uygulama için en iyi, en kaliteli ve en farklı özellik, tasarım ve içerikleri toplar; örnekler, gerekirse sorular ve örnek tasarımlarla sunar; sonra bunları ajanlara görev brifleri olarak dağıtır. Kullanıcı "tasarım vergisi", "referanslardan özellik topla", "bu uygulama için ilham/özellik çıkar ve ajanlara dağıt" dediğinde ya da bir uygulama fikri verip referans tabanlı tasarım araştırması istediğinde kullan.
+description: Tasarım Vergisi — küratörlü bir referans kataloğunu (UI galerileri, motion, tasarım sistemleri, pixel-art/oyun, 3D, video, AI ses/medya, kalite kapıları) kullanarak istenen uygulama için en iyi, en kaliteli ve en farklı özellik, tasarım ve içerikleri toplar; örnekler, gerekirse sorular ve örnek tasarımlarla sunar; sonra bunları ajanlara görev brifleri olarak dağıtır. Kullanıcı "tasarım vergisi", "referanslardan özellik topla", "bu uygulama için ilham/özellik çıkar ve ajanlara dağıt" dediğinde ya da bir uygulama fikri verip referans tabanlı tasarım araştırması istediğinde kullan.
 license: MIT
 ---
 
