@@ -1,0 +1,98 @@
+{
+  "id": "HL-001",
+  "project": "Sinematik, az metinli, evcil hayvan eşlikli yürüyüş ve balık tutma oyunu",
+  "design_mechanic": "Oyuncu bir süre durduğunda kedi önce uzağı izler; sonra başını çevirip gelip yanına oturur. Bu eylem ödül puanı üretmez, sonraki sessiz sahneye bağlanır.",
+  "reference_scope": "Ürün anlatısından türetilmiş konsept; gerçek referans görseli/test görüntüsü bu örneğe dahil değil",
+  "evidence_level": "E0",
+  "viewer_contexts": [
+    {
+      "id": "first-time",
+      "goal": "Oyunda ne yapılacağını anlamak",
+      "potential_reaction": "Kedinin hareketinin kendisine yanıt verdiğini fark etmeyebilir",
+      "alternative_reaction": "Kedi yanına gelince küçük bir eşlik duygusu kurabilir",
+      "accessibility": "Kontrast ve pet ölçeği yeterli olmalı; kısa görsel ipucu sunulmalı"
+    },
+    {
+      "id": "slow-explorer",
+      "goal": "Yürüyüş temposunu ve etrafı keşfetmek",
+      "potential_reaction": "Durarak da ilerleme olduğunu hissedebilir",
+      "alternative_reaction": "Bir süre sonra tepki mekanik ve tekrar eden hale gelebilir",
+      "accessibility": "Ses kapalıyken görsel mikro tepki korunmalı"
+    },
+    {
+      "id": "needs-control",
+      "goal": "Kısa oturumda istediği zaman çıkabilmek",
+      "potential_reaction": "Bekleme uzarsa kontrolün elinden alındığını düşünebilir",
+      "alternative_reaction": "Skor baskısı olmamasını sevebilir",
+      "accessibility": "Sahne kesintisiz atlanabilir, reduced motion ve erişilebilir pet çağırma olmalı"
+    }
+  ],
+  "moments": [
+    {
+      "stage": "encounter",
+      "visible_evidence": "Tasarımsal hedef: kıyı kadrajında oyuncu ve pet yan yana görünür",
+      "inferred_reaction": "Oyuncu kediyle aynı yöne bakarken ilişki kurabileceğini düşünebilir",
+      "counter_hypothesis": "Pet kadrajda küçük kalırsa fark edilmez",
+      "user_test": "Ekrana kısa bakış sonrası oyuncunun pet'i tarif edip edemediğini sor"
+    },
+    {
+      "stage": "interpretation",
+      "visible_evidence": "Planlanan oynanışta durma input'u pet'in bekleme state'ini tetikler",
+      "inferred_reaction": "Durmanın da bir seçim olduğunu anlayabilir",
+      "counter_hypothesis": "Geri bildirim yoksa kontrolün bozulduğunu sanabilir",
+      "user_test": "Oyuncunun yardım olmadan beklemeyi deneme nedenini dinle"
+    },
+    {
+      "stage": "expectation",
+      "visible_evidence": "Kedi önce birkaç adım ilerler ve kısa süre çevreyi izler",
+      "inferred_reaction": "Kedi yürümeye devam edecek diye düşünebilir",
+      "counter_hypothesis": "Oyuncu bu davranışı standart takip animasyonu olarak görebilir",
+      "user_test": "Kedi yaklaşmadan hemen önce neler olacağını düşündüğünü sor"
+    },
+    {
+      "stage": "resolution",
+      "visible_evidence": "Pet geri döner ve oyuncunun yanında oturur; UI skoru gösterilmez",
+      "inferred_reaction": "Şaşırtıcı ama şefkatli bir tepki gibi yorumlayabilir",
+      "counter_hypothesis": "Oyuncu gecikmeyi sıkıcı bulabilir veya kedinin rastgele hareket ettiğini düşünebilir",
+      "user_test": "Oyuncudan beklenmedik bir şey olup olmadığını kendi sözcükleriyle tarif etmesini iste"
+    },
+    {
+      "stage": "afterglow",
+      "visible_evidence": "Sonraki sahnede pet bekleme alışkanlığının kısa bir varyasyonu görünür",
+      "inferred_reaction": "Önceki anın dünyada küçük bir izi olduğunu hissedebilir",
+      "counter_hypothesis": "Tekrar aynı animasyon gibi okunabilir",
+      "user_test": "Oturum sonunda en çok hatırlanan sahneyi açık uçlu sor"
+    }
+  ],
+  "surprise": {
+    "baseline_expectation": "Yürümeyi bırakan oyuncu için evcil hayvan sabit idle animasyonuna geçer",
+    "advance_cue": "Kedi yavaşça dönüp oyuncunun yakınında durur, oturmadan önce başını kaldırır",
+    "unexpected_change": "Pet yalnızca durmakla kalmaz, oyuncunun yanına gelip aynı yöne bakarak bekler",
+    "narrative_reason": "Eşlik mekanizmasının özü ilerletmek değil, birlikte durabilme hissidir",
+    "resolution": "Oyuncu hareket ettiğinde pet doğal olarak takip eder; bekleme zorunluluğu yoktur",
+    "player_control": "Oyuncu herhangi bir anda yürüyebilir, kediyi çağırabilir veya sahneden çıkabilir",
+    "repeat_behavior": "Kısa duruş, uzun duruş ve farklı çevredeki küçük tepkiler anlamlı biçimde çeşitlenir",
+    "possible_negative_reaction": "Yavaş yanıt, oynanışın bozulduğu veya kedi kontrolünün kaybolduğu izlenimi verebilir"
+  },
+  "test_plan": {
+    "task": "Oyuncuya sadece yürüme ve durma kontrollerini göster; pet'in davranışını tarif ettir",
+    "behavior_signal": "Pet fark edilme, yardım almadan durmayı deneme ve geri döndürme başarısı",
+    "non_leading_question": "Beklerken ne olduğunu düşündün?",
+    "counterevidence": "Oyuncuların çoğu pet'in geri dönüşünü fark etmiyor veya kontrol bozuldu sanıyorsa hipotezi reddet",
+    "privacy_plan": "Yalnızca anonim görev başarı verisi ve açık rızalı nitel notlar tutulur"
+  },
+  "safety": {
+    "skip_or_exit": true,
+    "reduced_motion": true,
+    "sound_off_equivalent": true,
+    "no_emotional_penalty": true
+  },
+  "claims": [
+    {
+      "text": "Pet'in yanına oturması eşlik duygusunu artırabilir",
+      "evidence_level": "E0",
+      "type": "design_hypothesis",
+      "limitation": "Gerçek oyuncu tepkisi ölçülmedi; bazı oyuncular yavaşlığı sıkıcı bulabilir"
+    }
+  ]
+}

@@ -1,18 +1,25 @@
-# Bulgu kartı formatı
+# Bulgu kartı ve öncelik puanlaması
 
-Araştırmacı ajanlar her bulguyu bu formatta döndürür (Markdown, kart başına bir blok):
+Her fikir **kaynak + kanıt + ürün katkısı + uygulama + kabul kriteri** taşımalıdır.
 
+```markdown
+### F-001 Kısa ad
+Kaynak / REF-ID / tam URL / erişim tarihi:
+Doğrudan incelenen bölüm ve kanıt: screenshot | video | demo | kod
+Doğrulandı: evet | kısmi | hayır
+Güven: yüksek | orta | düşük; bilinmeyenler:
+Kategori / platform:
+Çözülen kullanıcı sorunu:
+Ölçülen referans karakteristiği (oran, kamera, motion, etkileşim):
+Özgün uygulama fikri ve neden uygun olduğu:
+Korunacaklar / kasıtlı sapmalar:
+Teknik uygulama ve bağımlılıklar:
+Lisans, telif ve güvenlik kısıtları:
+Kabul kanıtı: görsel + davranış + test:
+Puan: katkı _/5 · uyum _/5 · özgünlük _/5 · uygulanabilirlik _/5 · güven _/5 · maliyet _/5
+Karar: seçildi | ertelendi | elendi; gerekçe:
 ```
-### <kısa ad>
-- Kaynak: <site/repo + tam URL> · doğrulandı: evet/hayır
-- Kategori: <katalog harfi ve adı>
-- Ne: <özellik/tasarım/içerik, 1–2 cümle, kopyalamadan tarif>
-- Neden bu uygulamaya: <somut ekran/akış/an>
-- Nasıl: <kütüphane/teknik + kabaca uygulama adımları>
-- Örnek: <minimal kod parçası veya ASCII/tarif mockup>
-- Lisans: <MIT/Apache/GPL/…/ticari/bilinmiyor>
-- Puan: Katkı _/5 · Kalite _/5 · Farklılık _/5 · Maliyet _/5
-- Soru (varsa): <kullanıcıya sorulması gereken karar>
-```
 
-Kurallar: varlık (görsel, sprite, logo, metin) kopyalanmaz; açılamayan kaynak "doğrulandı: hayır".
+Skor = `2×katkı + 2×uyum + özgünlük + uygulanabilirlik + güven + maliyet` (en fazla **35**).
+
+Puan **karar önerisidir**, otomatik onay değildir. Çekirdek deneyimi bozan veya telifli varlığın izinsiz kullanılmasını gerektiren fikir seçilemez. Doğrulanmamış kaynak, kanıt olarak kullanılamaz. `Maliyet=5` düşük iş/yüksek karşılık, `Maliyet=1` yüksek iş/risk demektir. Küçük işte 1–5, geniş işte 5–15 gerçekten iyi bulgu seç; sırf sayı dolsun diye fikir üretme.

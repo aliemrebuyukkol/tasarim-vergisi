@@ -76,7 +76,7 @@ Türler: `saas` (web paneli/SaaS), `mobil`, `oyun`, `landing` (açılış/pazarl
 - **pmndrs/postprocessing** — bloom, DOF, renk derecelendirme · oyun, landing
 - **Alchemist0823/three.quarks** — parçacık/VFX · oyun, landing
 - **jrouwe/JoltPhysics** — sert/yumuşak cisim fiziği (web için wasm portu) · oyun
-- **ahujasid/mcp-for-blender** — Claude'un Blender sahnesi kurması (bu oturumda Blender MCP mevcut) · oyun, video, landing
+- **ahujasid/mcp-for-blender** — Claude'un Blender sahnesi kurması (ortamda kuruluysa ve bağlantısı doğrulandıysa kullan) · oyun, video, landing
 
 ## K. Video üretim / post
 - **remotion-dev/remotion** — React ile programatik video · video, landing
@@ -103,3 +103,57 @@ Türler: `saas` (web paneli/SaaS), `mobil`, `oyun`, `landing` (açılış/pazarl
 
 Kalite kapıları (E, F, G, H) her uygulama paketinin brifine "kabul kriteri" olarak girer —
 özellik fikri üretmez, ama her ajan görevini denetler.
+
+<!-- TASARIM-VERGISI-V2-CATALOG-BEGIN -->
+
+## M. Oyun tasarımı / anlatı / erişilebilirlik (v3)
+
+- **docs.godotengine.org** — sahne grafı, oyun durumları, motor mimarisi · oyun
+- **docs.unity3d.com** — animasyon, profiler, motor, input sistemi · oyun
+- **gameaccessibilityguidelines.com** — oyun erişilebilirliği tasarım ilkeleri (?) · oyun
+- **inklestudios.com/ink** — dallanan anlatı ve değişken/durum yazımı (?) · oyun
+- **gdcvault.com** — oyun tasarımı ve üretimi konuşmaları, bazı içeriklere giriş gerekebilir (?) · oyun
+
+## N. iOS / native oyun ve ölçüm (v3)
+
+- **developer.apple.com/documentation/swiftui** — native arayüz, navigation, lifecycle · mobil
+- **developer.apple.com/documentation/spritekit** — 2D animasyon, sahne, fizik, kamera · oyun
+- **developer.apple.com/documentation/realitykit** — 3D sahne, animasyon ve etkileşim · oyun
+- **developer.apple.com/documentation/xctest** — birim ve UI testleri · mobil, oyun
+- **developer.apple.com/accessibility** — iOS erişilebilirlik rehberleri (?) · mobil, oyun
+- **developer.chrome.com/docs/devtools/performance** — web render/main-thread performansı (?) · oyun, saas, landing
+
+## v2 uygulama türü ve kalite düzeltmesi
+
+- Oyun projelerinde I/J/C kaynaklarına ek **M** ve native iOS hedefleniyorsa **N** kategorilerini değerlendir.
+- E/F/G/H kalite kaynakları yalnızca gerçek platformla uyumluysa görevlere taşınır. Swift oyununa CSS/TypeScript/Testing Library zorunluluğu getirilmez; React web projesine XCTest zorunluluğu getirilmez.
+- Kaynak adı gerçek görsel, motion, performans veya davranış kanıtı değildir. Doğrudan incelenemeyen kaynak `doğrulandı: hayır` olarak kalır.
+- Referanslardan yapı, desen ve teknik alınır; telifli varlıklar, sprite, logo, yazı veya seviye izinsiz kopyalanmaz.
+- Blender MCP ve başka herhangi bir entegrasyon **ortamdan bağımsız olarak mevcut varsayılamaz**. Bağlı olup olmadığını her çalışmada keşfet.
+
+## O. Algı, yaratıcı problem çözümü ve görsel psikoloji (v3)
+
+- **nngroup.com/articles/principles-visual-design/** — görsel hiyerarşi, denge, Gestalt, kontrast; ilk bakış hipotezlerinin dayanağı · hepsi
+- **designcouncil.org.uk/resources/framework-for-innovation** — ayrışma/yakınsama ve tasarım süreci · hepsi
+- **cambridge.org/core/journals/design-science/** — yenilik ve yararlılık değerlendirmesi (makaleye göre doğrula) · hepsi
+
+## P. Yaratıcı değerlendirme ve prototip doğrulama (v3)
+
+- **nngroup.com/articles/ten-usability-heuristics/** — görev başarısı, sistem görünürlüğü, hata önleme ve kontrol · hepsi
+- **designcouncil.org.uk/resources/the-double-diamond/** — alternatif üretmeden erken sabitlenmeme · hepsi
+
+V3 kategorilerinde yalnızca doğrulanmış kaynağı kanıt say. Görsel VLM, OCR veya saliency aracı yoksa çalıştırılmış gibi yapma; özgünlük için otomatik skor **yardımcı**, insan beğenisi sonucu değildir.
+
+## Q. İnsan algısı, estetik, merak ve beklenti (v4)
+
+- **pubmed.ncbi.nlm.nih.gov/15582859/** — Reber ve diğerleri; işleme akıcılığı, kontrast, tekrar ve estetik haz ilişkisi · hepsi
+- **pmc.ncbi.nlm.nih.gov/articles/PMC5276863/** — estetik zevk ile bilişsel ilgi arasındaki ayrım · hepsi
+- **pmc.ncbi.nlm.nih.gov/articles/PMC3954044/** — saliency modellerinin insan bakışını açıklama sınırları · hepsi
+- **pmc.ncbi.nlm.nih.gov/articles/PMC5095118/** — yenilik/karmaşıklık beğeni ilişkisinin basit ters U'dan daha karmaşık olması · hepsi
+- **doi.org/10.1037/0033-2909.116.1.75** — Loewenstein; bilgi boşluğu ve merak · oyun, saas, mobil
+- **pmc.ncbi.nlm.nih.gov/articles/PMC4193662/** — bilgi arama, merak ve dikkat; bağlama göre davranış · hepsi
+- **sciencedirect.com/science/article/pii/S0749597822000334** — peak-end kuralına dair meta-analiz; bağlamsal sınırlarla değerlendir · oyun, mobil
+
+**Kullanım:** Bu bilimsel kaynaklar **kanıtlı insan tercihi** veya kesin kişiye özel tahmin sağlamaz. Hipotez kur, gerçek kullanıcıyla ölç. Yüksek şaşırtıcılık herkes için yüksek beğeni anlamına gelmez.
+
+<!-- TASARIM-VERGISI-V2-CATALOG-END -->

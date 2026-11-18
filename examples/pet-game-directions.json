@@ -1,0 +1,62 @@
+{
+  "project": "Sinematik, metinsiz, evcil hayvan eşlikli interaktif oyun",
+  "baseline": {
+    "mechanic": "oyuncu görev işaretçisine yürür ve butona basarak animasyonu başlatır",
+    "composition": "ekran ortasında karakter, sağ üst köşede görev listesi",
+    "emotional_payoff": "görev tamamlandı bildirimi"
+  },
+  "constraints": ["oyun metin tabanlı olmayacak", "evcil hayvan yanımızda kalmalı", "duygusal zorluk cezalandırılmamalı"],
+  "directions": [
+    {
+      "id": "D01",
+      "name": "Sessiz Eşlik",
+      "family": "faithful",
+      "core_action": "oyuncu kıyı boyunca temposunu kendi belirleyerek yürür",
+      "mechanic": "oyuncunun yürüyüş temposuna pet'in mesafe ve duruşları eş zamanlı olarak uyum sağlar",
+      "composition": "uzun yatay kıyı kadrajı, karakter-pet silüetleri ön planda, sessiz ufuk geniş boşlukta",
+      "motion": "pet adımlarının gecikmeli eşleşmesi, kamera yumuşak takip ve durunca yerinde oturma",
+      "emotional_payoff": "sözcüksüz birinin yanında kalması hissi",
+      "baseline_difference": "tamamlanacak görev yerine eşlik davranışı ve oyuncu temposu ana mekanik olur",
+      "user_value": "oyuncu ritmini seçer; hareket etmeden kalmak da geçerli bir etkileşimdir",
+      "feasibility_proof": "tek sahnede follow distance ve idle-transition testleri",
+      "criticism": "yeterli çevre geri bildirimi yoksa sahne boş ve sıkıcı görünebilir",
+      "reference_fidelity": "sabit sinematik kadraj, düşük yoğunluklu UI ve pet görünürlüğü korunur",
+      "risks": ["pet pathfinding takılması", "duygusal anlamın tüm kullanıcılara aynı geçmemesi"],
+      "scores": {"novelty": 3, "usefulness": 5, "coherence": 5, "feasibility": 5, "emotional_impact": 4}
+    },
+    {
+      "id": "D02",
+      "name": "Mevsimin Hafızası",
+      "family": "cross-domain",
+      "core_action": "oyuncu patikadaki nesnelere yaklaşır ve onları farklı anlarda izler",
+      "mechanic": "mekânın hafıza katmanları pet davranışları ve sesle açılır, kararlar sonraki ziyaretin çevresini değiştirir",
+      "composition": "sabit merkezli diorama, çevresinde anı katmanları ve ışık halkaları",
+      "motion": "müzikal ritimle senkron yavaş parallax, anıdan güncele kesintisiz plan",
+      "emotional_payoff": "değişim küçük izlerle fark edilir; hız zorunlu değildir",
+      "baseline_difference": "diyalog seçimi yerine mekânın dönüşümü anlamlı karar ve ilerlemeyi taşır",
+      "user_value": "çok az metinle değişen dünyayı keşfetme ve bağ kurma",
+      "feasibility_proof": "tek diorama sahnesinde iki ziyaret ve tek hafıza değişkeni",
+      "criticism": "seçim geri bildirimi çok ince kalırsa oyuncu etkisini fark etmeyebilir",
+      "reference_fidelity": "stilize diorama ve sinematik ışık korunur, mekanik değişir",
+      "risks": ["kayıtlı dünya durumunda tutarsızlık", "anlatı işaretlerinin anlaşılmaması"],
+      "scores": {"novelty": 4, "usefulness": 4, "coherence": 5, "feasibility": 4, "emotional_impact": 5}
+    },
+    {
+      "id": "D03",
+      "name": "Görünmez Orkestra",
+      "family": "radical-testable",
+      "core_action": "oyuncu yürürken sesler üretmek için çevre nesneleriyle oynar",
+      "mechanic": "balık tutma, yürüyüş ve koltukta oturma sahneleri kesintisiz ortak bir çevresel müzik kompozisyonunu dönüştürür",
+      "composition": "minimal arayüz, büyük çevre silüetleri ve sesin mekânsal kaynağını işaret eden hareketler",
+      "motion": "dokunsal kontrol-nesne tepkisi ile ritmik kamera/ışık dönüşümü, kullanıcı hareketi azaltabilir",
+      "emotional_payoff": "kendine ait küçük dünyayı sesiyle şekillendirme ve aidiyet hissi",
+      "baseline_difference": "bölümlerin her biri ayrı mini oyun değil, birlikte üretilen tek bir ses ve mekân eseri olur",
+      "user_value": "dünyanın oyuncu eylemlerine tutarlı ve geri döndürülebilir tepki vermesi",
+      "feasibility_proof": "tek yürüyüş ve balık tutma sahnesinde iki ses katmanının state-sync testi",
+      "criticism": "ses kapalı kullanıcılar için görsel karşılığı geliştirilmezse temel döngü bozulur",
+      "reference_fidelity": "karakter ve petin görünürlüğü, stilize atmosfer korunur; mekanik deneysel kalır",
+      "risks": ["ses gecikmesi", "düşük güçlü cihazlarda aşırı performans yükü", "ses kapalı erişilebilirlik"],
+      "scores": {"novelty": 5, "usefulness": 3, "coherence": 4, "feasibility": 3, "emotional_impact": 5}
+    }
+  ]
+}
