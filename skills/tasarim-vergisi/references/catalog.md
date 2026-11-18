@@ -156,4 +156,13 @@ V3 kategorilerinde yalnızca doğrulanmış kaynağı kanıt say. Görsel VLM, O
 
 **Kullanım:** Bu bilimsel kaynaklar **kanıtlı insan tercihi** veya kesin kişiye özel tahmin sağlamaz. Hipotez kur, gerçek kullanıcıyla ölç. Yüksek şaşırtıcılık herkes için yüksek beğeni anlamına gelmez.
 
+## R. Gerçek görsel ve etkileşim kanıtı (v5)
+
+- **pillow.readthedocs.io** — Pillow görüntü farkı, katman ve görüntü metadata işlemleri (kütüphane dokümanı) · web, mobil, oyun
+- **ffmpeg.org/documentation.html** — video/frameler ve çözünürlük/timestamp bilgileri · video, oyun, mobil
+- **playwright.dev/python** — gerçek tarayıcı navigasyon/etkileşim ve ekran yakalama · web, web oyun
+- **w3.org/WAI** — erişilebilirlik kriterleri, klavye ve yardımcı teknolojiler · web, mobil
+
+Kaynak siteleri yalnızca **ilk kullanımda doğrudan doğrulandıysa** bilgi iddiasına dönüştür. Araçların adı birer yöntem önerisidir; belirli cihazda başarı kanıtı değildir.
+
 <!-- TASARIM-VERGISI-V2-CATALOG-END -->

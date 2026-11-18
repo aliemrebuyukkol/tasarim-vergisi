@@ -1,0 +1,14 @@
+{
+  "case_id": "pet-scene-01",
+  "reference_id": "REF-001",
+  "hypothesis": "Kedi oyuncu durduğunda yanına gelirse davranış fark edilir ve baskı oluşturmaz",
+  "technical_evidence": [],
+  "human_evidence": null,
+  "acceptance": {
+    "max_rgb_mae": 0.20,
+    "min_human_per_variant": 8,
+    "min_task_success_rate": 0.8,
+    "min_liking_mean": 3.0,
+    "max_negative_effect_count": 0
+  }
+}

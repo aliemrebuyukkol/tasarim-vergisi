@@ -1,8 +1,41 @@
-# Tasarım Vergisi v4
+# Tasarım Vergisi v5
 
 **Referansı oku → ölç → Design DNA oluştur → uzman ajanlara dağıt → gerçek çıktıyı doğrula.**
 
 Referans kataloğundan araştırma yapan, fikirleri ürün katkısına göre seçen, görsel/motion/etkileşim kurallarını teknik tasarım sözleşmesine dönüştüren ve web, mobil, oyun, 3D, video projelerini test kapılarıyla yöneten araçtan bağımsız bir [Agent Skill](https://agentskills.io).
+
+## v5: Gerçek kanıta bağlanan insan algısı
+
+Skill, yalnızca bir tasarımın insanlarca sevilmesi gerektiğini öne sürmekle kalmaz; kanıtı **hangi araçla, hangi durumda ve hangi sınırla** topladığını belirtir.
+
+- **Visual Evidence:** Aynı viewport ekranlar için gerçek piksel farkı, katman karşılaştırması, bölgesel diff ve SHA-256 referansları.
+- **Motion Evidence:** FFmpeg ile referans/aday kliplerinden aynı zaman damgalarında gerçek kareler ve raporlar.
+- **Interaction Capture:** Playwright ile localhost prototipinde eylemleri yürüten, console hatalarını ve ekran görüntülerini raporlayan test aracı.
+- **Human Study:** Rıza ile toplanan gerçek CSV gözlemlerinden görev başarısı, fark etme, anlama, öznel şaşkınlık, beğeni ve 24 saatlik hatırlamanın ayrı betimsel analizi.
+- **Evidence Gate:** Hipotez + teknik rapor + insan gözlemini ilişkilendiren, eksik kanıtta “doğrulandı” demeyen karar kapısı.
+- **CI + ürün regresyonu:** Skill için her commit/PR'da statik ve sentetik testler, ürün repo'suna takıldığında ise gerçek referans/aday görüntülerle tekrarlanan görsel regresyon; eksik görüntüler fail-closed.
+
+### Hızlı kullanım
+
+~~~bash
+pip install -r scripts/requirements-evidence.txt
+python3 scripts/evidence_lab.py compare --reference ref.png --candidate build.png --output evidence/scene
+python3 scripts/evidence_lab.py frames --video scene.mp4 --timestamps 0,0.5,1.2 --output evidence/frames
+python3 scripts/evidence_lab.py video-compare --reference ref.mp4 --candidate build.mp4 --timestamps 0,0.5,1.2 --output evidence/motion
+python3 scripts/evidence_lab.py study --csv private-study.csv --output evidence/study.json
+python3 scripts/evidence_lab.py gate --manifest examples/evidence-case.template.json --output evidence/gate.json
+python3 scripts/evidence_suite.py --config examples/project-evidence-suite.template.json --output evidence/ci
+~~~
+
+Tarayıcı yakalama (Playwright + Chromium gerekli):
+
+~~~bash
+python3 -m http.server 8000 --directory examples/prototype-demo
+# Başka terminalde:
+python3 scripts/prototype_capture.py --config examples/prototype-capture.template.json --output evidence/browser
+~~~
+
+Kullanıcı testi şablonu `examples/human-study-template.csv` **boştur**. Gerçek katılımcı sonucu sağlanmadıkça başarı veya psikolojik etki iddiası yoktur. Detaylar: [Empirical Evidence Loop](skills/tasarim-vergisi/references/empirical-evidence-loop.md) ve [Evidence Tools](skills/tasarim-vergisi/references/evidence-tools.md).
 
 ## v4: İnsansı düşünme ve algı hipotezleri
 
@@ -91,6 +124,26 @@ Gemini CLI/Antigravity/diğer araçlarda ilgili skills klasörü ve kökteki `AG
 > Tasarım vergisi: Mevcut web uygulamamın onboarding ekranlarını analiz et, kaynakla aynı viewport'ta kıyasla, kritik kırılmaları düzelt.
 
 Modlar: **araştırma / prototip / uygulama**. Uygulama modunda üretilen çalışma dosyaları, kapsam uygunsa `TASARIM-VERGISI.md`, `DESIGN-DNA.md`, `QUALITY-REPORT.md` ve `tasarim-vergisi/ornekler/` altında raporlanır.
+
+## v5 yeni dosyalar
+
+~~~text
+scripts/evidence_core.py
+scripts/evidence_lab.py
+scripts/prototype_capture.py
+scripts/evidence_suite.py
+scripts/requirements-evidence.txt
+scripts/tests/test_evidence_lab.py
+examples/evidence-case.template.json
+examples/prototype-capture.template.json
+examples/project-evidence-suite.template.json
+examples/product-visual-regression.workflow.example.yml
+examples/human-study-template.csv
+examples/prototype-demo/index.html
+skills/tasarim-vergisi/references/empirical-evidence-loop.md
+skills/tasarim-vergisi/references/evidence-tools.md
+skills/tasarim-vergisi/references/user-research-protocol.md
+~~~
 
 ## Statik skill testi
 

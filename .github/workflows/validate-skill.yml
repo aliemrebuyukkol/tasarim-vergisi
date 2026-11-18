@@ -5,15 +5,38 @@ on:
   pull_request:
 
 jobs:
-  static-validation:
+  static-and-evidence-unit-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Static skill validation
-        run: python3 scripts/check_skill.py
-      - name: Test structural novelty audit
-        run: PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/tests -v
-      - name: Check example idea cards
-        run: python3 scripts/idea_audit.py examples/pet-game-directions.json
-      - name: Check human perception hypothesis card
-        run: python3 scripts/experience_audit.py examples/pet-game-human-lens.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image-test dependency
+        run: python -m pip install -r scripts/requirements-evidence.txt
+      - name: Static skill and references
+        run: python scripts/check_skill.py
+      - name: Unit tests (includes synthetic visual and human cases)
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -m unittest discover -s scripts/tests -v
+      - name: Check structural creativity cards
+        run: python scripts/idea_audit.py examples/pet-game-directions.json
+      - name: Check perception hypothesis cards
+        run: python scripts/experience_audit.py examples/pet-game-human-lens.json
+      - name: Check evidence manifest rejects missing data
+        shell: bash
+        run: |
+          set +e
+          python scripts/evidence_lab.py gate --manifest examples/evidence-case.template.json --output /tmp/v5-example-gate.json
+          result=$?
+          set -e
+          test "$result" -eq 3
+      - name: Ensure missing product images are not misreported as passing
+        shell: bash
+        run: |
+          set +e
+          python scripts/evidence_suite.py --config examples/project-evidence-suite.template.json --output /tmp/v5-suite
+          result=$?
+          set -e
+          test "$result" -eq 3

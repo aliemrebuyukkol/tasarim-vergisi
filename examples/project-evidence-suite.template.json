@@ -1,0 +1,14 @@
+{
+  "project": "Bu dosyayı kendi uygulamanın gerçek referans/çıktı yollarıyla doldur",
+  "cases": [
+    {
+      "id": "home-mobile-default",
+      "kind": "image",
+      "target_state": "home:initial:390x844",
+      "reference": "./screenshots/reference-home.png",
+      "candidate": "./screenshots/current-home.png",
+      "max_rgb_mae": 0.15,
+      "tolerance": 16
+    }
+  ]
+}

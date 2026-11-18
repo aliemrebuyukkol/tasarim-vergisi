@@ -68,3 +68,7 @@ Kanıt seviyesini iddiadan **önce** kaydet. “Kullanıcılar bunu sevdi”, �
 - Saliency modellerinin göreve bağlı sınırlılıkları: https://pmc.ncbi.nlm.nih.gov/articles/PMC3954044/
 - Karmaşıklık ve Berlyne yaklaşımının sınırları: https://pmc.ncbi.nlm.nih.gov/articles/PMC5095118/
 - Peak-end kuralına ilişkin meta analiz: https://www.sciencedirect.com/science/article/pii/S0749597822000334
+
+## v5: Gözleme dayalı düzeltme
+
+Modelin “ilk bakışta insan gözünü çeker”, “şaşırtır”, “sevdirir” gibi cümlelerini **hipotez** diye etiketle. Bunları ölçmek için [empirical-evidence-loop.md](empirical-evidence-loop.md) ve [user-research-protocol.md](user-research-protocol.md) ile gerçek veri planı oluştur; göz izleme/duygu algılama sensörü yoksa sanki ölçülmüş gibi sunma.

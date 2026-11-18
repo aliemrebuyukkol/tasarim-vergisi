@@ -1,0 +1,4 @@
+# Görsel karşılaştırma ve FFmpeg çıkışını okumak için opsiyonel bağımlılık.
+Pillow>=10,<13
+# Tarayıcı yakalama için ayrıca: pip install playwright && playwright install chromium
+# Video kareleri için sistemde ffmpeg + ffprobe kurulumu gerekir.

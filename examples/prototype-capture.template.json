@@ -1,0 +1,15 @@
+{
+  "url": "http://127.0.0.1:8000",
+  "viewport": {"width": 390, "height": 844},
+  "reduced_motion": "reduce",
+  "steps": [
+    {"action": "wait_visible", "selector": "#scene"},
+    {"action": "screenshot"},
+    {"action": "click", "selector": "#walk"},
+    {"action": "expect_text", "selector": "#status", "value": "Yürüyorsun"},
+    {"action": "screenshot"},
+    {"action": "click", "selector": "#pause"},
+    {"action": "expect_text", "selector": "#status", "value": "Durup birlikte denizi izliyorsunuz"},
+    {"action": "screenshot"}
+  ]
+}

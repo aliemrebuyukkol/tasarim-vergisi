@@ -1,10 +1,10 @@
 ---
 name: tasarim-vergisi
-description: "Tasarım Vergisi; insan algısına dair kanıta dayalı hipotezleri, yaratıcı muhakemeyi ve doğrudan referans analizini birleştirir, Design DNA ve uygulanabilir tasarım çözümleri üretir, web, mobil, oyun, 3D ve video görevlerini uzman ajanlara dağıtır ve çıktıyı ölçülebilir kalite kapılarıyla doğrular. Kullanıcı tasarım vergisi, referans sadakati veya araştırma tabanlı ürün/oyun geliştirme istediğinde kullan."
+description: "Tasarım Vergisi; görüntü, etkileşim ve insan testleriyle desteklenebilen algı hipotezlerini, yaratıcı muhakemeyi ve doğrudan referans analizini birleştirir, Design DNA ve uygulanabilir tasarım çözümleri üretir, web, mobil, oyun, 3D ve video görevlerini uzman ajanlara dağıtır ve çıktıyı ölçülebilir kalite kapılarıyla doğrular. Kullanıcı tasarım vergisi, referans sadakati veya araştırma tabanlı ürün/oyun geliştirme istediğinde kullan."
 license: MIT
 ---
 
-# Tasarım Vergisi v4
+# Tasarım Vergisi v5
 
 Görev: **referansı incele → ölç → fikirleri ele → Design DNA'yı kilitle → uygun yığınla üret → gerçek çıktıyı doğrula**. Bir mockup'ın güzel görünmesi, çalışan veya yayıma hazır ürün kanıtı değildir.
 
@@ -30,6 +30,9 @@ Görev: **referansı incele → ölç → fikirleri ele → Design DNA'yı kilit
 | [empathy-simulator.md](references/empathy-simulator.md) | Olası birinci kişi deneyimi, farklı kullanıcı niyetleri, karşı hipotez |
 | [surprise-architecture.md](references/surprise-architecture.md) | Beklenti → ipucu → sapma → anlam → çözülme |
 | [taste-lab.md](references/taste-lab.md) | Gerçek kullanıcı beğenisi ve davranışını ayrı ölçen araştırma tasarımı |
+| [empirical-evidence-loop.md](references/empirical-evidence-loop.md) | Gerçek ekran/video, etkileşim, insan testi ve karar döngüsü |
+| [evidence-tools.md](references/evidence-tools.md) | Ölçüm aracı komutları, kurulum, engeller ve raporlar |
+| [user-research-protocol.md](references/user-research-protocol.md) | Gerçek katılımcı, rıza, beğeni, şaşkınlık ve hatırlama ölçümü |
 
 ## Değişmez çalışma kuralları
 
@@ -62,6 +65,20 @@ Her güçlü aday için:
 5. **Kanıt:** E0 (model varsayımı) ile E4 (tekrarlı veri) merdiveninden doğru düzeyi seç. [taste-lab.md](references/taste-lab.md) ile görev başarısı, öznel beğeni, şaşkınlık ve gecikmeli hatırlamayı ayrı gözlemle. E3/E4 verisi yoksa **insanlar seviyor** deme.
 
 Oyun/sinematik sahnelerde `examples/pet-game-human-lens.json` sözleşmesini örnek al. `scripts/experience_audit.py` yalnızca kart yapısının eksiksizliğini test eder; insan tepkisini **ölçmez**. İsterse farklılık ve duygu hipotezlerini birlikte kullan, referansın korunması gereken görsel DNA'sını izinsiz bozma.
+
+## v5 — Empirical Perception Loop (uygulama ve prototipte zorunlu)
+
+v4 algı ve özgünlük hipotezleri artık yalnızca sözlü değerlendirme değildir. [empirical-evidence-loop.md](references/empirical-evidence-loop.md) döngüsünü uygula:
+
+1. **Ölçülebilir hipotez + karşı hipotez:** Örneğin "Kedi yanına dönünce sahne anlaşılır" ve "Bekleme süresini gereksiz uzatabilir".
+2. **Gerçek görüntü:** Referans ve aday **aynı viewport ve aynı state**; `python3 scripts/evidence_lab.py compare --reference ref.png --candidate build.png --output evidence/scene-01`. Eşit olmayan ekranları sessizce yeniden boyutlandırma.
+3. **Gerçek motion:** Video varsa `frames` veya `video-compare` ile belirli zaman noktalarını çıkar; ara kare/oynatım ritmini manuel izle. İki kareden easing veya FPS kanıtı üretme.
+4. **Gerçek interaksiyon:** Web prototipi localhost'taysa [evidence-tools.md](references/evidence-tools.md) ve `scripts/prototype_capture.py` ile aksiyon, ekran, hata ve reduced-motion durumunu yakala. Gerçek iOS uygulamasıysa Xcode/cihaz kanıtı olmadan web testini native test diye adlandırma.
+5. **Gerçek insan:** [user-research-protocol.md](references/user-research-protocol.md) ile rıza ve gerçek görev gözlemi; fark edilme, anlama, görev başarısı, şaşırma, beğeni ve gecikmeli hatırlamayı ayrı tut. Sentetik/test verisini **insan kanıtı** olarak gösterme.
+6. **Karar:** `evidence_lab.py gate` ile hipotez başına kanıt dosyalarını bağla. Eksik kanıt **limited_or_blocked**, eşik kırılması **failed**. Tek pixel MAE veya n>=8 insan tercihlerini kanıtlamaz; tasarımcı kararı ve örnekleme belirsizliği kalır.
+7. **Tekrar:** Ürünün CI/PR akışına `scripts/evidence_suite.py` ile gerçek referans/aday dosyalarını bağla; görsel dosya yoksa **blocked**. Değişen commit sonrası ölçümü yenile; eski kanıtı yeni sürüm için tekrar kullanma. `DESIGN-LEARNING.md` içine hangi hipotezin neden revize edildiğini kaydet.
+
+Ürün için **kanıt gerçekten mevcut değilse** bu işlemleri simüle etme; test planını ve engeli raporla. Otomasyon sürekli çalışan bir hizmet değildir: her PR/commit/manuel oturumda tetiklenebilir; insan çalışması kendiliğinden gerçekleşmez. Bu araçlar istatistiksel anlamlılık, gerçek göz takibi, bilinç, klinik etki veya estetik doğruluk vermez.
 
 ## 1. Kabul ve ortam keşfi
 

@@ -3,3 +3,9 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .DS_Store
+# Varsayılan: gerçek katılımcı ve ham test verileri repoya gitmesin.
+evidence/
+private-study*.csv
+local-participants*.csv
+playwright-report/
+test-results/

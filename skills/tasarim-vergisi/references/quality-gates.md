@@ -64,7 +64,7 @@ Bir kapının çalıştırılamaması `engellendi`, uygulanacak bağlamın olmam
 G9/G10/G11 araştırma ve yaratıcı işlerde; G12 yalnızca kullanıcı yararı veya beğeni iddiasında bulunuluyorsa release değerlendirmesine eklenir. Bunlar eski G0–G8 kapılarına alternatifi değil ekidir.
 
 
-## G9 İnsan algısı ve yaratıcı kalite (v4)
+## G13 İnsan algısı ve yaratıcı kalite (v4)
 
 - **Algı hipotezi:** Dikkat/akıcılık/merak/şaşırma/hatırlama adımları, kaynak gözlemi ve model yorumu ayrılmış mı?
 - **Karşı hipotez:** En az bir kullanıcının fikri neden sevemeyebileceği ve bunu nasıl öğreneceğimiz yazılmış mı?
@@ -75,3 +75,14 @@ G9/G10/G11 araştırma ve yaratıcı işlerde; G12 yalnızca kullanıcı yararı
 - **Araç:** `python3 scripts/experience_audit.py examples/pet-game-human-lens.json` bir **şema kontrolüdür**; insan algı veya beğeni kanıtı değildir.
 
 Ürün hakkında ileri sürülen psikolojik iddialar için E3/E4 kanıtı yoksa “doğrulandı” denmez. E0/E1 ile iyi düşünülmüş konsept sunulabilir fakat insan araştırması yapılmış gibi anlatılamaz. Kullanıcı testi tek başına teknik/erişilebilirlik kapılarını geçirmiş sayılmaz.
+
+## G14 Empirical Evidence (v5)
+
+- Aynı viewport ve state için gerçek screenshot kaydı, gerçek hash, fark metrikleri ve manuel görsel inceleme var mı? Yoksa görsel sadakat **engellendi**.
+- Video varsa referans + aday zaman noktası kıyası ve kare arası motion manuel değerlendirmesi var mı? Yalnız statik kareyle physics/60 FPS geçmez.
+- Etkileşimler tarayıcıda/cihazda gerçekten oynatıldı mı? Console hatası ve kırılan görev rapora girdi mi?
+- Kullanıcı seviyor/hissediyor iddiası varsa gerçek, rızaya dayalı kullanıcı gözlemi var mı? CSV yoksa E0 hipotezi korunur; uydurulmuş E3 yasaktır.
+- Aynı test yeni commit üzerinde tekrarlandı mı? Eski sürüm screenshot'ı yeni sürümün kanıtı değildir.
+- `scripts/evidence_lab.py gate` bir **kanıt toplama ve eşik kontrolü**dür; release veya klinik doğrulama belgesi değildir.
+
+G14'te “insan kanıtı yok” teknik prototipin tamamını silmez; raporu **sınırlı doğrulama** yapar, beğeni iddiasını ise engeller. Kullanıcı testi genel bir üründe zorunlu olmayabilir; beğeni/duygu iddiasına koşuldur.

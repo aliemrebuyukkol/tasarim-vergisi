@@ -1,0 +1,16 @@
+# ÖRNEK: Bunu ürün reposuna uyarlayın. Tamamlanmış görsel doğrulama sayılmaz.
+# Proje, referans screenshot'larını ve her PR için yeni candidate screenshot'larını
+# aynı viewport/state ile **önce** üretmelidir; bu örnekte bu adım yoktur.
+name: Product visual evidence (adapt to project)
+on: [push, pull_request]
+jobs:
+  visual-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install -r scripts/requirements-evidence.txt
+      # Proje özelinde screenshot ve video üretim adımlarını ekleyin.
+      - run: python scripts/evidence_suite.py --config examples/project-evidence-suite.template.json --output evidence/ci
+      # Gerçek insan gözlemlerini CI içinde uydurmayın.

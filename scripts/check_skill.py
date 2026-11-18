@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tasarım Vergisi v4 doküman ve yerel bağlantı statik tutarlılık testi.
+"""Tasarım Vergisi v5 doküman ve yerel bağlantı statik tutarlılık testi.
 
 Gerçek UI, gameplay, cihaz performansı veya kaynak erişimini doğrulamaz.
 """
@@ -30,6 +30,9 @@ REQUIRED = [
     "references/empathy-simulator.md",
     "references/surprise-architecture.md",
     "references/taste-lab.md",
+    "references/empirical-evidence-loop.md",
+    "references/evidence-tools.md",
+    "references/user-research-protocol.md",
 ]
 
 
@@ -55,7 +58,7 @@ def main() -> None:
                     issues.append(f"SKILL.md: {key} eksik")
             if not re.search(r"(?m)^name:\s*tasarim-vergisi\s*$", section):
                 issues.append("SKILL.md: name tasarim-vergisi olmalı")
-        for keyword in ("Design DNA", "quality-gates.md", "perception-engine.md", "creative-reasoning.md", "critique-council.md", "human-perception.md", "taste-lab.md", "surprise-architecture.md", "oyun", "engellendi"):
+        for keyword in ("Design DNA", "quality-gates.md", "perception-engine.md", "creative-reasoning.md", "critique-council.md", "human-perception.md", "taste-lab.md", "surprise-architecture.md", "empirical-evidence-loop.md", "evidence-tools.md", "oyun", "engellendi"):
             if keyword.casefold() not in content.casefold():
                 issues.append(f"SKILL.md: {keyword} kavramı yok")
 

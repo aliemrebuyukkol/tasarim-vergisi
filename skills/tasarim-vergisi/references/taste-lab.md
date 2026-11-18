@@ -51,3 +51,7 @@ Karar durumu: **hipotez**, **prototipte işledi**, **insanlarla gözlendi**, **t
 - Kullanıcılar arasında farklı zevkleri ve erişilebilirlik gereksinimlerini koru.
 - Katılımcı notlarını/görüntülerini izinsiz kalıcı depolama; sağlık veya kimlik bilgisi gereksizse toplama.
 - Tasarım simülasyonu gerçek psikolojik deney değildir. Skill bu ayrımı kullanıcıya görünür yapar.
+
+## v5 araç entegrasyonu
+
+Gerçek kullanıcı oturumu planlamak için [user-research-protocol.md](user-research-protocol.md) kullan. Gözlemler özel CSV'ye rıza ile yazılır; analiz `scripts/evidence_lab.py study` ile yalnızca betimleyici yapılır. İnsan testi **yapılmadıysa** E3 seviyesine geçme. Referans/screenshot/pixel raporları katılımcı gözlemi değildir.
